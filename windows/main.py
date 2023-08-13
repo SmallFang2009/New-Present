@@ -4,11 +4,11 @@ import subprocess
 import tkinter as tk
 from tkinter import messagebox
 import threading
-import screeninfo
+import screeninfo  # 导入获取屏幕分辨率的库
 
 def play_video(filepath, resolution):
     clip = VideoFileClip(filepath)
-    clip = clip.resize(resolution)
+    clip = clip.resize(resolution)  # 将视频分辨率设置为屏幕分辨率
     clip.preview(fullscreen=True)
     clip.reader.close()
     clip.audio.reader.close_proc()
