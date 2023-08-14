@@ -35,3 +35,6 @@
 发送到手机上，即可按照流程安装应用了
 
 ***特别提醒：我也没按照这个方法测试过Android版是否可以更改所播放的视频文件，一切都是按照我的理论知识写的，如果失败了可以在issue里面留言***
+
+## LICENSE
+[MIT LICENSE](https://github.com/FangZirui-E5/New-Present/blob/main/LICENSE)
