@@ -55,12 +55,16 @@ def control_volume(max_volume):
         set_volume(max_volume)
         time.sleep(interval)
 
-def toggle_mute():
+def open_volume():
     devices = AudioUtilities.GetSpeakers()
     interface = devices.Activate(
         IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
     volume = cast(interface, POINTER(IAudioEndpointVolume))
-    volume.SetMute(0, None)
+    
+    while True:
+        volume.SetMute(0, None)
+        time.sleep(0.01)
+
 
 def main():
     filepath = "source/video.mp4"
@@ -71,7 +75,7 @@ def main():
 
     play_thread = threading.Thread(target=play_video, args=(filepath, screen_resolution))
     volume_thread = threading.Thread(target=control_volume, args=(max_volume,))
-    mute_thread = threading.Thread(target=toggle_mute)
+    mute_thread = threading.Thread(target=open_volume)
 
     play_thread.start()
     volume_thread.start()
@@ -85,4 +89,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
