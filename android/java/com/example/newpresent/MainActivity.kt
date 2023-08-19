@@ -12,7 +12,6 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import android.widget.VideoView
-import android.app.ActivityManager
 
 class MainActivity : Activity() {
 
@@ -66,14 +65,6 @@ class MainActivity : Activity() {
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            showToast("好好听着，别想着退出！")
-            return true
-        }
-        if (keyCode == KeyEvent.KEYCODE_HOME) {
-            showToast("好好听着，别想着退出！")
-            return true
-        }
-        if (keyCode == KeyEvent.KEYCODE_MENU) {
             showToast("好好听着，别想着退出！")
             return true
         }
