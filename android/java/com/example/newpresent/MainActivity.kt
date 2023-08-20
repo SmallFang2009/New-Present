@@ -31,7 +31,17 @@ class MainActivity : Activity() {
             }
         }
     }
-
+    private fun hideNavigationBar() {
+        val decorView: View = window.decorView
+        decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_IMMERSIVE
+                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_FULLSCREEN
+                )
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,6 +51,7 @@ class MainActivity : Activity() {
 
         audioManager = getSystemService(AudioManager::class.java)
 
+        hideNavigationBar()
         videoView = findViewById(R.id.videoView)
         videoView.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
@@ -64,7 +75,7 @@ class MainActivity : Activity() {
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
+        if (keyCode==KeyEvent.KEYCODE_HOME|| keyCode == KeyEvent.KEYCODE_BACK || keyCode== KeyEvent.KEYCODE_VOLUME_DOWN || keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
             showToast("好好听着，别想着退出！")
             return true
         }
