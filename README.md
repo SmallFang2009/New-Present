@@ -33,7 +33,7 @@ v1.2.2
 
 重新将后缀改为apk
 
-并按照这个教程：[安卓教程：APK程序手机端签名教程](https://sspai.com/post/23947)给这个apk安装包签名
+并按照这个教程：[对 APK 进行手动签名](https://learn.microsoft.com/zh-cn/previous-versions/xamarin/android/deploy-test/signing/manually-signing-the-apk)给这个apk安装包签名
 
 发送到手机上，即可按照流程安装应用了
 
